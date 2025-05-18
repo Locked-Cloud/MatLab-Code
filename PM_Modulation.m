@@ -11,8 +11,6 @@ modulating_signal = Am * cos(2 * pi * fm * t);
 carrier_signal = Ac * cos(2 * pi * fc * t);
 pm_signal = Ac * cos(2 * pi * fc * t + kp * modulating_signal);
 
-
-
 % Plot results
 figure;
 
