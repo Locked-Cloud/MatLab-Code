@@ -13,12 +13,7 @@ modulating_signal = Am * cos(2 * pi * fm * t);
 carrier_signal = Ac * cos(2 * pi * fc * t);
 pm_signal = Ac * cos(2 * pi * fc * t + kp * modulating_signal);
 
-% PM Demodulation (Phase detector using Hilbert transform)
-analytic_signal = hilbert(pm_signal);                  % Analytic signal
-instantaneous_phase = unwrap(angle(analytic_signal));  % Extract phase
-carrier_phase = 2 * pi * fc * t;                       % Carrier phase
-demodulated_phase = instantaneous_phase - carrier_phase; 
-demodulated_signal = demodulated_phase / kp;           % Remove phase sensitivity
+
 
 % Plot results
 figure;
@@ -44,11 +39,3 @@ ylabel('Amplitude');
 grid on;
 title('Phase Modulated (PM) Signal');
 
-subplot(4,1,4);
-plot(t, modulating_signal, 'r', t, demodulated_signal, 'g--');
-xlabel('Time (s)');
-ylabel('Amplitude');
-grid on;
-legend('Original Message', 'Demodulated Signal');
-title('Demodulation Result');
-ylim([-2.5 2.5]); % Match amplitude scale
