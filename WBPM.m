@@ -2,7 +2,7 @@ fs = 10000;
 t = 0:1/fs:0.1;
 fm = 100;
 fc = 1000;
-Am = 2;
+Am = 1;
 Ac = 2;
 kp = 5*pi; % Phase sensitivity (adjust as needed)
 
